@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="javascripts/baiduTemplate.js"></script>
+    <script src="javascripts/jquery.js"></script>
+</head>
+<body>
+    <input type="text" id="username">
+    <input type="password" id="password">
+    <button id="btn">登录</button>
+    <script>
+        $("#btn").click(function() {
+            $.post('http://localhost:3000/users/login/',{
+                username:$("#username").val(),
+                password:$("#password").val()
+            }).then((res) => {
+                if($("#username").val() && $("#password").val() ) {
+                    if(res.data.login) {
+                        alert('登录成功');
+                        location.href = '/cats.html';
+                    } else {
+                        alert('用户名或密码不正确')
+                    }
+                } else {
+                    alert('用户名或密码不能为空')
+                }
+            })
+        })
+    </script>
+</body>
+</html>

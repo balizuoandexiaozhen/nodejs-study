@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <style>
+        .s {
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/baiduTemplate.js"></script>
+    <script src="javascripts/quit.js"></script>
+    <script src="javascripts/welcome.js"></script>
+    <!-- <script src="javascripts/cat.js"></script> -->
+</head>
+<body>
+    <div class="mark">
+        <div class="mark-form">
+            <input type="hidden" name="name1" class="mark-name1">
+            <input type="text" name="name2" class="mark-name2">
+            <button id="modify">修改</button>
+            <button class="close" type="button">关闭</button>
+        </div>
+    </div>
+    <header>
+        <span id="welcome"></span><span id="quitarea"></span>
+    </header>
+    <div id="box">
+
+    </div>
+    <script id="tem" type="text/html">
+        <input type="text" id="add">
+        <button id="addbtn">添加</button>
+        <a href="query.html">查找</a>
+        <ul>
+            <% for(var i = 0;i < list.length; i++) { %>
+                <li> 
+                    <span class="s"><%= list[i].name %></span> 
+                    <button data-del="<%= list[i]._id %>" class="delbtn">删除</button>
+                    <button data-modify="<%= list[i].name %>" class="modifybtn">修改</button>       
+                </li> 
+            <% } %>
+        </ul>
+        <div>
+            <% for(var page = 1; page <= pagecount; page++) { %>
+                <span data-page="<%= page %>" ><%= page %></span>
+            <% } %>
+        </div>
+    </script>
+    <script src="javascripts/cat.js"></script>
+
+</body>
+</html>
